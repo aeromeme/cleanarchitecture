@@ -21,8 +21,13 @@ builder.Services.AddScoped<ICommonService<Note>, Aplication.NoteService>();
 builder.Services.AddScoped<ICommonRepository<Note>, DBRepository.NoteRepository>();
 
 
-builder.Services.AddGraphQLServer().AddQueryType<Query>()
-    .AddTypeExtension<NoteQuery>().AddTypeExtension<ItemQuery>().AddMutationType<ItemMutation>();
+builder.Services.AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddTypeExtension<NoteQuery>()
+    .AddTypeExtension<ItemQuery>()
+    .AddMutationType<Mutation>()
+    .AddTypeExtension<ItemMutation>()
+    .AddTypeExtension<NoteMutation>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

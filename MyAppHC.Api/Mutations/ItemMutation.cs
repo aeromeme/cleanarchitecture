@@ -5,6 +5,7 @@ using HotChocolate;
 
 namespace MyAppHC.Api.Mutations
 {
+    [ExtendObjectType(typeof(Mutation))]
     public class ItemMutation
     {
         public async Task<Item> AddItem(string title, [Service] IService itemService)

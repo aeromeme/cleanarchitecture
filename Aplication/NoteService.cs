@@ -29,7 +29,7 @@ namespace Aplication
 
         public Task<Note?> GetById(int id)
         {
-            throw new NotImplementedException();
+            return _noteRepository.GetById(id);
         }
     }
 }
