@@ -1,6 +1,8 @@
+using Aplication.DTO;
 using Aplication.Ports;
 using Domain.Entities;
 using Domain.Interfaces;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using MyAppHC.Api.Mutations;
 using MyAppHC.Api.Queries;
@@ -28,6 +30,8 @@ builder.Services.AddGraphQLServer()
     .AddMutationType<Mutation>()
     .AddTypeExtension<ItemMutation>()
     .AddTypeExtension<NoteMutation>();
+
+builder.Services.AddScoped<IValidator<CreateNoteDto>, CreateNoteDtoValidator>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
